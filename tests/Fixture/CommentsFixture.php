@@ -21,9 +21,11 @@ class CommentsFixture extends TestFixture
             [
                 'id' => 1,
                 'sermon_id' => 1,
+                'name' => 'Lorem ipsum dolor sit amet',
+                'email' => 'Lorem ipsum dolor sit amet',
                 'comment' => 'Lorem ipsum dolor sit amet, aliquet feugiat. Convallis morbi fringilla gravida, phasellus feugiat dapibus velit nunc, pulvinar eget sollicitudin venenatis cum nullam, vivamus ut a sed, mollitia lectus. Nulla vestibulum massa neque ut et, id hendrerit sit, feugiat in taciti enim proin nibh, tempor dignissim, rhoncus duis vestibulum nunc mattis convallis.',
-                'created' => '2025-07-24 10:24:20',
-                'modified' => '2025-07-24 10:24:20',
+                'created' => '2025-07-24 12:03:39',
+                'modified' => '2025-07-24 12:03:39',
                 'createdby' => 'Lorem ipsum dolor sit amet',
                 'modifiedby' => 'Lorem ipsum dolor sit amet',
                 'deleted' => 1,

@@ -3,7 +3,7 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Topic $topic
  */
-$this->set('title_2', 'Topics');
+$this->set('title_2', 'Theme');
 $emptyText = "Veuillez selectionner";
 ?>
 <div class="mt-3">

@@ -10,6 +10,8 @@ use Cake\ORM\Entity;
  *
  * @property int $id
  * @property int $comment_id
+ * @property string|null $name
+ * @property string|null $email
  * @property string|null $answer
  * @property \Cake\I18n\DateTime|null $created
  * @property \Cake\I18n\DateTime|null $modified
@@ -32,6 +34,8 @@ class Answer extends Entity
      */
     protected array $_accessible = [
         'comment_id' => true,
+        'name' => true,
+        'email' => true,
         'answer' => true,
         'created' => true,
         'modified' => true,

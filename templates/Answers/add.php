@@ -14,6 +14,12 @@ $emptyText = "Veuillez selectionner";
                 <?= $this->Form->control('comment_id', ['options' => $comments, 'empty' => $emptyText, 'class' => 'form-select js-example-basic-single', 'label' => 'comment_id']); ?>
             </div>
             <div class="col-xl-12">
+                <?= $this->Form->control('name', ['class' => 'form-control', 'label' => 'name']); ?>
+            </div>
+            <div class="col-xl-12">
+                <?= $this->Form->control('email', ['class' => 'form-control', 'label' => 'email']); ?>
+            </div>
+            <div class="col-xl-12">
                 <?= $this->Form->control('answer', ['class' => 'form-control', 'label' => 'answer']); ?>
             </div>
         </div>

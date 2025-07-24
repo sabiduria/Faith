@@ -15,6 +15,14 @@
                     <td><?= $comment->hasValue('sermon') ? $this->Html->link($comment->sermon->title, ['controller' => 'Sermons', 'action' => 'view', $comment->sermon->id]) : '' ?></td>
                 </tr>
                 <tr>
+                    <th><?= __('Name') ?></th>
+                    <td><?= h($comment->name) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Email') ?></th>
+                    <td><?= h($comment->email) ?></td>
+                </tr>
+                <tr>
                     <th><?= __('Createdby') ?></th>
                     <td><?= h($comment->createdby) ?></td>
                 </tr>
@@ -53,6 +61,8 @@
                         <tr>
                             <th><?= __('Id') ?></th>
                             <th><?= __('Comment Id') ?></th>
+                            <th><?= __('Name') ?></th>
+                            <th><?= __('Email') ?></th>
                             <th><?= __('Answer') ?></th>
                             <th><?= __('Created') ?></th>
                             <th><?= __('Modified') ?></th>
@@ -65,6 +75,8 @@
                         <tr>
                             <td><?= h($answer->id) ?></td>
                             <td><?= h($answer->comment_id) ?></td>
+                            <td><?= h($answer->name) ?></td>
+                            <td><?= h($answer->email) ?></td>
                             <td><?= h($answer->answer) ?></td>
                             <td><?= h($answer->created) ?></td>
                             <td><?= h($answer->modified) ?></td>

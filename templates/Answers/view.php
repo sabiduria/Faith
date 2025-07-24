@@ -15,6 +15,14 @@
                     <td><?= $answer->hasValue('comment') ? $this->Html->link($answer->comment->id, ['controller' => 'Comments', 'action' => 'view', $answer->comment->id]) : '' ?></td>
                 </tr>
                 <tr>
+                    <th><?= __('Name') ?></th>
+                    <td><?= h($answer->name) ?></td>
+                </tr>
+                <tr>
+                    <th><?= __('Email') ?></th>
+                    <td><?= h($answer->email) ?></td>
+                </tr>
+                <tr>
                     <th><?= __('Createdby') ?></th>
                     <td><?= h($answer->createdby) ?></td>
                 </tr>

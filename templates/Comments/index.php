@@ -17,6 +17,8 @@ $emptyText = "Veuillez selectionner";
                     <th><?= $this->Paginator->sort('N°') ?></th>
                     <th><?= $this->Paginator->sort('id') ?></th>
                     <th><?= $this->Paginator->sort('sermon_id') ?></th>
+                    <th><?= $this->Paginator->sort('name') ?></th>
+                    <th><?= $this->Paginator->sort('email') ?></th>
                     <th><?= $this->Paginator->sort('created') ?></th>
                     <th><?= $this->Paginator->sort('modified') ?></th>
                     <th><?= $this->Paginator->sort('createdby') ?></th>
@@ -31,6 +33,8 @@ $emptyText = "Veuillez selectionner";
                     <td><?= $Number++ ?></td>
                     <td><?= $this->Number->format($comment->id) ?></td>
                     <td><?= $comment->hasValue('sermon') ? $this->Html->link($comment->sermon->title, ['controller' => 'Sermons', 'action' => 'view', $comment->sermon->id]) : '' ?></td>
+                    <td><?= h($comment->name) ?></td>
+                    <td><?= h($comment->email) ?></td>
                     <td><?= h($comment->created) ?></td>
                     <td><?= h($comment->modified) ?></td>
                     <td><?= h($comment->createdby) ?></td>
@@ -62,6 +66,12 @@ $emptyText = "Veuillez selectionner";
         <div class="row gy-2">
             <div class="col-xl-12">
                 <?= $this->Form->control('sermon_id', ['options' => $sermons, 'empty' => $emptyText, 'class' => 'form-select js-example-basic-single', 'label' => 'sermon_id']); ?>
+            </div>
+            <div class="col-xl-12">
+                <?= $this->Form->control('name', ['class' => 'form-control', 'label' => 'name']); ?>
+            </div>
+            <div class="col-xl-12">
+                <?= $this->Form->control('email', ['class' => 'form-control', 'label' => 'email']); ?>
             </div>
             <div class="col-xl-12">
                 <?= $this->Form->control('comment', ['class' => 'form-control', 'label' => 'comment']); ?>

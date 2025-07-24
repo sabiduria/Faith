@@ -173,6 +173,7 @@ $username = $session->read('Auth.Username');
     'datatables.js',
     'select2.js',
     'custom-switcher.min.js',
+    'blog-details.js',
     'custom.js',
 ]) ?>
 <!-- Datatables Cdn -->

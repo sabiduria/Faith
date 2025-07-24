@@ -121,7 +121,7 @@ class CommentsController extends AppController
     /**
      * Insert method
      */
-    public function insert()
+    public function insert($id)
     {
         $this->request->allowMethod(['ajax', 'post']);
         $session = $this->request->getSession();
@@ -131,6 +131,7 @@ class CommentsController extends AppController
 
             $comment->createdby = $session->read('Auth.Username');
             $comment->modifiedby = $session->read('Auth.Username');
+            $comment->sermon_id = $id;
             $comment->deleted = 0;
 
             try{

@@ -66,6 +66,15 @@ class AnswersTable extends Table
             ->notEmptyString('comment_id');
 
         $validator
+            ->scalar('name')
+            ->maxLength('name', 45)
+            ->allowEmptyString('name');
+
+        $validator
+            ->email('email')
+            ->allowEmptyString('email');
+
+        $validator
             ->scalar('answer')
             ->allowEmptyString('answer');
 

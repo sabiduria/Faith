@@ -70,6 +70,15 @@ class CommentsTable extends Table
             ->notEmptyString('sermon_id');
 
         $validator
+            ->scalar('name')
+            ->maxLength('name', 45)
+            ->allowEmptyString('name');
+
+        $validator
+            ->email('email')
+            ->allowEmptyString('email');
+
+        $validator
             ->scalar('comment')
             ->allowEmptyString('comment');
 

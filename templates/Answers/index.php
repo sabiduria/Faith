@@ -17,6 +17,8 @@ $emptyText = "Veuillez selectionner";
                     <th><?= $this->Paginator->sort('N°') ?></th>
                     <th><?= $this->Paginator->sort('id') ?></th>
                     <th><?= $this->Paginator->sort('comment_id') ?></th>
+                    <th><?= $this->Paginator->sort('name') ?></th>
+                    <th><?= $this->Paginator->sort('email') ?></th>
                     <th><?= $this->Paginator->sort('created') ?></th>
                     <th><?= $this->Paginator->sort('modified') ?></th>
                     <th><?= $this->Paginator->sort('createdby') ?></th>
@@ -31,6 +33,8 @@ $emptyText = "Veuillez selectionner";
                     <td><?= $Number++ ?></td>
                     <td><?= $this->Number->format($answer->id) ?></td>
                     <td><?= $answer->hasValue('comment') ? $this->Html->link($answer->comment->id, ['controller' => 'Comments', 'action' => 'view', $answer->comment->id]) : '' ?></td>
+                    <td><?= h($answer->name) ?></td>
+                    <td><?= h($answer->email) ?></td>
                     <td><?= h($answer->created) ?></td>
                     <td><?= h($answer->modified) ?></td>
                     <td><?= h($answer->createdby) ?></td>
@@ -62,6 +66,12 @@ $emptyText = "Veuillez selectionner";
         <div class="row gy-2">
             <div class="col-xl-12">
                 <?= $this->Form->control('comment_id', ['options' => $comments, 'empty' => $emptyText, 'class' => 'form-select js-example-basic-single', 'label' => 'comment_id']); ?>
+            </div>
+            <div class="col-xl-12">
+                <?= $this->Form->control('name', ['class' => 'form-control', 'label' => 'name']); ?>
+            </div>
+            <div class="col-xl-12">
+                <?= $this->Form->control('email', ['class' => 'form-control', 'label' => 'email']); ?>
             </div>
             <div class="col-xl-12">
                 <?= $this->Form->control('answer', ['class' => 'form-control', 'label' => 'answer']); ?>
