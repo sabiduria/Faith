@@ -274,6 +274,55 @@
                 <?php endif; ?>
             </div>
             <div class="related">
+                <h4><?= __('Related Projects') ?></h4>
+                <?php if (!empty($church->projects)) : ?>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <tr>
+                            <th><?= __('Id') ?></th>
+                            <th><?= __('Title') ?></th>
+                            <th><?= __('Description') ?></th>
+                            <th><?= __('Start Date') ?></th>
+                            <th><?= __('End Date') ?></th>
+                            <th><?= __('Church Id') ?></th>
+                            <th><?= __('Amount') ?></th>
+                            <th><?= __('Project Status') ?></th>
+                            <th><?= __('Is Active') ?></th>
+                            <th><?= __('Created') ?></th>
+                            <th><?= __('Modified') ?></th>
+                            <th><?= __('Createdby') ?></th>
+                            <th><?= __('Modifiedby') ?></th>
+                            <th><?= __('Deleted') ?></th>
+                            <th class="actions"><?= __('Actions') ?></th>
+                        </tr>
+                        <?php foreach ($church->projects as $project) : ?>
+                        <tr>
+                            <td><?= h($project->id) ?></td>
+                            <td><?= h($project->title) ?></td>
+                            <td><?= h($project->description) ?></td>
+                            <td><?= h($project->start_date) ?></td>
+                            <td><?= h($project->end_date) ?></td>
+                            <td><?= h($project->church_id) ?></td>
+                            <td><?= h($project->amount) ?></td>
+                            <td><?= h($project->project_status) ?></td>
+                            <td><?= h($project->is_active) ?></td>
+                            <td><?= h($project->created) ?></td>
+                            <td><?= h($project->modified) ?></td>
+                            <td><?= h($project->createdby) ?></td>
+                            <td><?= h($project->modifiedby) ?></td>
+                            <td><?= h($project->deleted) ?></td>
+                            <td class="actions">
+                                <?= $this->Html->link(__('Details'), ['controller' => 'Projects', 'action' => 'view', $project->id], ['class' => 'btn btn-success btn-sm']) ?>
+                                <?= $this->Html->link(__('Editer'), ['controller' => 'Projects', 'action' => 'edit', $project->id], ['class' => 'btn btn-primary btn-sm']) ?>
+                                <?= $this->Form->postLink(__('Supprimer'), ['controller' => 'Projects', 'action' => 'delete', $project->id], ['class' => 'btn btn-danger btn-sm', 'confirm' => __('Voulez-vous supprimer cette information ?')]) ?>
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </table>
+                </div>
+                <?php endif; ?>
+            </div>
+            <div class="related">
                 <h4><?= __('Related Sermons') ?></h4>
                 <?php if (!empty($church->sermons)) : ?>
                 <div class="table-responsive">

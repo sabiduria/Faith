@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\ChurchsTable;
+use App\Model\Table\ProjectsTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\ChurchsTable Test Case
+ * App\Model\Table\ProjectsTable Test Case
  */
-class ChurchsTableTest extends TestCase
+class ProjectsTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\ChurchsTable
+     * @var \App\Model\Table\ProjectsTable
      */
-    protected $Churchs;
+    protected $Projects;
 
     /**
      * Fixtures
@@ -24,16 +24,9 @@ class ChurchsTableTest extends TestCase
      * @var list<string>
      */
     protected array $fixtures = [
-        'app.Churchs',
-        'app.Denominations',
-        'app.Affecations',
-        'app.Equipments',
-        'app.GroupMembers',
-        'app.Members',
         'app.Projects',
-        'app.Sermons',
-        'app.Services',
-        'app.Transactions',
+        'app.Churchs',
+        'app.Contributions',
     ];
 
     /**
@@ -44,8 +37,8 @@ class ChurchsTableTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('Churchs') ? [] : ['className' => ChurchsTable::class];
-        $this->Churchs = $this->getTableLocator()->get('Churchs', $config);
+        $config = $this->getTableLocator()->exists('Projects') ? [] : ['className' => ProjectsTable::class];
+        $this->Projects = $this->getTableLocator()->get('Projects', $config);
     }
 
     /**
@@ -55,7 +48,7 @@ class ChurchsTableTest extends TestCase
      */
     protected function tearDown(): void
     {
-        unset($this->Churchs);
+        unset($this->Projects);
 
         parent::tearDown();
     }
@@ -64,7 +57,7 @@ class ChurchsTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
-     * @uses \App\Model\Table\ChurchsTable::validationDefault()
+     * @uses \App\Model\Table\ProjectsTable::validationDefault()
      */
     public function testValidationDefault(): void
     {
@@ -75,7 +68,7 @@ class ChurchsTableTest extends TestCase
      * Test buildRules method
      *
      * @return void
-     * @uses \App\Model\Table\ChurchsTable::buildRules()
+     * @uses \App\Model\Table\ProjectsTable::buildRules()
      */
     public function testBuildRules(): void
     {

@@ -3,16 +3,16 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Controller;
 
-use App\Controller\ChurchsController;
+use App\Controller\ProjectsController;
 use Cake\TestSuite\IntegrationTestTrait;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Controller\ChurchsController Test Case
+ * App\Controller\ProjectsController Test Case
  *
- * @uses \App\Controller\ChurchsController
+ * @uses \App\Controller\ProjectsController
  */
-class ChurchsControllerTest extends TestCase
+class ProjectsControllerTest extends TestCase
 {
     use IntegrationTestTrait;
 
@@ -22,23 +22,16 @@ class ChurchsControllerTest extends TestCase
      * @var list<string>
      */
     protected array $fixtures = [
-        'app.Churchs',
-        'app.Denominations',
-        'app.Affecations',
-        'app.Equipments',
-        'app.GroupMembers',
-        'app.Members',
         'app.Projects',
-        'app.Sermons',
-        'app.Services',
-        'app.Transactions',
+        'app.Churchs',
+        'app.Contributions',
     ];
 
     /**
      * Test index method
      *
      * @return void
-     * @uses \App\Controller\ChurchsController::index()
+     * @uses \App\Controller\ProjectsController::index()
      */
     public function testIndex(): void
     {
@@ -49,7 +42,7 @@ class ChurchsControllerTest extends TestCase
      * Test view method
      *
      * @return void
-     * @uses \App\Controller\ChurchsController::view()
+     * @uses \App\Controller\ProjectsController::view()
      */
     public function testView(): void
     {
@@ -60,7 +53,7 @@ class ChurchsControllerTest extends TestCase
      * Test add method
      *
      * @return void
-     * @uses \App\Controller\ChurchsController::add()
+     * @uses \App\Controller\ProjectsController::add()
      */
     public function testAdd(): void
     {
@@ -71,7 +64,7 @@ class ChurchsControllerTest extends TestCase
      * Test edit method
      *
      * @return void
-     * @uses \App\Controller\ChurchsController::edit()
+     * @uses \App\Controller\ProjectsController::edit()
      */
     public function testEdit(): void
     {
@@ -82,7 +75,7 @@ class ChurchsControllerTest extends TestCase
      * Test delete method
      *
      * @return void
-     * @uses \App\Controller\ChurchsController::delete()
+     * @uses \App\Controller\ProjectsController::delete()
      */
     public function testDelete(): void
     {
@@ -93,7 +86,7 @@ class ChurchsControllerTest extends TestCase
      * Test insert method
      *
      * @return void
-     * @uses \App\Controller\ChurchsController::insert()
+     * @uses \App\Controller\ProjectsController::insert()
      */
     public function testInsert(): void
     {

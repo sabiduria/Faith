@@ -14,7 +14,9 @@ use Cake\Validation\Validator;
  * @property \App\Model\Table\DenominationsTable&\Cake\ORM\Association\BelongsTo $Denominations
  * @property \App\Model\Table\AffecationsTable&\Cake\ORM\Association\HasMany $Affecations
  * @property \App\Model\Table\EquipmentsTable&\Cake\ORM\Association\HasMany $Equipments
+ * @property \App\Model\Table\GroupMembersTable&\Cake\ORM\Association\HasMany $GroupMembers
  * @property \App\Model\Table\MembersTable&\Cake\ORM\Association\HasMany $Members
+ * @property \App\Model\Table\ProjectsTable&\Cake\ORM\Association\HasMany $Projects
  * @property \App\Model\Table\SermonsTable&\Cake\ORM\Association\HasMany $Sermons
  * @property \App\Model\Table\ServicesTable&\Cake\ORM\Association\HasMany $Services
  * @property \App\Model\Table\TransactionsTable&\Cake\ORM\Association\HasMany $Transactions
@@ -67,6 +69,9 @@ class ChurchsTable extends Table
             'foreignKey' => 'church_id',
         ]);
         $this->hasMany('Members', [
+            'foreignKey' => 'church_id',
+        ]);
+        $this->hasMany('Projects', [
             'foreignKey' => 'church_id',
         ]);
         $this->hasMany('Sermons', [

@@ -27,7 +27,9 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\Denomination $denomination
  * @property \App\Model\Entity\Affecation[] $affecations
  * @property \App\Model\Entity\Equipment[] $equipments
+ * @property \App\Model\Entity\GroupMember[] $group_members
  * @property \App\Model\Entity\Member[] $members
+ * @property \App\Model\Entity\Project[] $projects
  * @property \App\Model\Entity\Sermon[] $sermons
  * @property \App\Model\Entity\Service[] $services
  * @property \App\Model\Entity\Transaction[] $transactions
@@ -61,7 +63,9 @@ class Church extends Entity
         'denomination' => true,
         'affecations' => true,
         'equipments' => true,
+        'group_members' => true,
         'members' => true,
+        'projects' => true,
         'sermons' => true,
         'services' => true,
         'transactions' => true,

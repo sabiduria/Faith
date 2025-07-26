@@ -3,20 +3,20 @@ declare(strict_types=1);
 
 namespace App\Test\TestCase\Model\Table;
 
-use App\Model\Table\ChurchsTable;
+use App\Model\Table\ContributionsTable;
 use Cake\TestSuite\TestCase;
 
 /**
- * App\Model\Table\ChurchsTable Test Case
+ * App\Model\Table\ContributionsTable Test Case
  */
-class ChurchsTableTest extends TestCase
+class ContributionsTableTest extends TestCase
 {
     /**
      * Test subject
      *
-     * @var \App\Model\Table\ChurchsTable
+     * @var \App\Model\Table\ContributionsTable
      */
-    protected $Churchs;
+    protected $Contributions;
 
     /**
      * Fixtures
@@ -24,16 +24,8 @@ class ChurchsTableTest extends TestCase
      * @var list<string>
      */
     protected array $fixtures = [
-        'app.Churchs',
-        'app.Denominations',
-        'app.Affecations',
-        'app.Equipments',
-        'app.GroupMembers',
-        'app.Members',
+        'app.Contributions',
         'app.Projects',
-        'app.Sermons',
-        'app.Services',
-        'app.Transactions',
     ];
 
     /**
@@ -44,8 +36,8 @@ class ChurchsTableTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $config = $this->getTableLocator()->exists('Churchs') ? [] : ['className' => ChurchsTable::class];
-        $this->Churchs = $this->getTableLocator()->get('Churchs', $config);
+        $config = $this->getTableLocator()->exists('Contributions') ? [] : ['className' => ContributionsTable::class];
+        $this->Contributions = $this->getTableLocator()->get('Contributions', $config);
     }
 
     /**
@@ -55,7 +47,7 @@ class ChurchsTableTest extends TestCase
      */
     protected function tearDown(): void
     {
-        unset($this->Churchs);
+        unset($this->Contributions);
 
         parent::tearDown();
     }
@@ -64,7 +56,7 @@ class ChurchsTableTest extends TestCase
      * Test validationDefault method
      *
      * @return void
-     * @uses \App\Model\Table\ChurchsTable::validationDefault()
+     * @uses \App\Model\Table\ContributionsTable::validationDefault()
      */
     public function testValidationDefault(): void
     {
@@ -75,7 +67,7 @@ class ChurchsTableTest extends TestCase
      * Test buildRules method
      *
      * @return void
-     * @uses \App\Model\Table\ChurchsTable::buildRules()
+     * @uses \App\Model\Table\ContributionsTable::buildRules()
      */
     public function testBuildRules(): void
     {

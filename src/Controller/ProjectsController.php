@@ -6,11 +6,11 @@ namespace App\Controller;
 use Exception;
 
 /**
- * Churchs Controller
+ * Projects Controller
  *
- * @property \App\Model\Table\ChurchsTable $Churchs
+ * @property \App\Model\Table\ProjectsTable $Projects
  */
-class ChurchsController extends AppController
+class ProjectsController extends AppController
 {
     /**
      * Index method
@@ -19,24 +19,24 @@ class ChurchsController extends AppController
      */
     public function index()
     {
-        $query = $this->Churchs->find()->where(['Churchs.deleted' => 0])
-            ->contain(['Denominations']);
-        $churchs = $this->paginate($query, ['limit' => 10000, 'maxLimit' => 10000]);
+        $query = $this->Projects->find()->where(['Projects.deleted' => 0])
+            ->contain(['Churchs']);
+        $projects = $this->paginate($query, ['limit' => 10000, 'maxLimit' => 10000]);
 
-        $this->set(compact('churchs'));
+        $this->set(compact('projects'));
     }
 
     /**
      * View method
      *
-     * @param string|null $id Church id.
+     * @param string|null $id Project id.
      * @return \Cake\Http\Response|null|void Renders view
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function view($id = null)
     {
-        $church = $this->Churchs->get($id, contain: ['Denominations', 'Affecations', 'Equipments', 'GroupMembers', 'Members', 'Projects', 'Sermons', 'Services', 'Transactions']);
-        $this->set(compact('church'));
+        $project = $this->Projects->get($id, contain: ['Churchs', 'Contributions']);
+        $this->set(compact('project'));
     }
 
     /**
@@ -47,56 +47,56 @@ class ChurchsController extends AppController
     public function add()
     {
         $session = $this->request->getSession();
-        $church = $this->Churchs->newEmptyEntity();
+        $project = $this->Projects->newEmptyEntity();
         if ($this->request->is('post')) {
-            $church = $this->Churchs->patchEntity($church, $this->request->getData());
+            $project = $this->Projects->patchEntity($project, $this->request->getData());
 
-            $church->createdby = $session->read('Auth.Username');
-            $church->modifiedby = $session->read('Auth.Username');
-            $church->deleted = 0;
+            $project->createdby = $session->read('Auth.Username');
+            $project->modifiedby = $session->read('Auth.Username');
+            $project->deleted = 0;
 
-            if ($this->Churchs->save($church)) {
-                $this->Flash->success(__('The church has been saved.'));
+            if ($this->Projects->save($project)) {
+                $this->Flash->success(__('The project has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The church could not be saved. Please, try again.'));
+            $this->Flash->error(__('The project could not be saved. Please, try again.'));
         }
-        $denominations = $this->Churchs->Denominations->find('list', limit: 200)->all();
-        $this->set(compact('church', 'denominations'));
+        $churchs = $this->Projects->Churchs->find('list', limit: 200)->all();
+        $this->set(compact('project', 'churchs'));
     }
 
     /**
      * Edit method
      *
-     * @param string|null $id Church id.
+     * @param string|null $id Project id.
      * @return \Cake\Http\Response|null|void Redirects on successful edit, renders view otherwise.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
     public function edit($id = null)
     {
         $session = $this->request->getSession();
-        $church = $this->Churchs->get($id, contain: []);
+        $project = $this->Projects->get($id, contain: []);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $church = $this->Churchs->patchEntity($church, $this->request->getData());
+            $project = $this->Projects->patchEntity($project, $this->request->getData());
 
-            $church->modifiedby = $session->read('Auth.Username');
+            $project->modifiedby = $session->read('Auth.Username');
 
-            if ($this->Churchs->save($church)) {
-                $this->Flash->success(__('The church has been saved.'));
+            if ($this->Projects->save($project)) {
+                $this->Flash->success(__('The project has been saved.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The church could not be saved. Please, try again.'));
+            $this->Flash->error(__('The project could not be saved. Please, try again.'));
         }
-        $denominations = $this->Churchs->Denominations->find('list', limit: 200)->all();
-        $this->set(compact('church', 'denominations'));
+        $churchs = $this->Projects->Churchs->find('list', limit: 200)->all();
+        $this->set(compact('project', 'churchs'));
     }
 
     /**
      * Delete method
      *
-     * @param string|null $id Church id.
+     * @param string|null $id Project id.
      * @return \Cake\Http\Response|null Redirects to index.
      * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
      */
@@ -104,15 +104,15 @@ class ChurchsController extends AppController
     {
         $session = $this->request->getSession();
         $this->request->allowMethod(['post', 'delete']);
-        $church = $this->Churchs->get($id);
+        $project = $this->Projects->get($id);
 
-        $church->modifiedby = $session->read('Auth.Username');
-        $church->deleted = 1;
+        $project->modifiedby = $session->read('Auth.Username');
+        $project->deleted = 1;
 
-        if ($this->Churchs->save($church)) {
-            $this->Flash->success(__('The church has been deleted.'));
+        if ($this->Projects->save($project)) {
+            $this->Flash->success(__('The project has been deleted.'));
         } else {
-            $this->Flash->error(__('The church could not be deleted. Please, try again.'));
+            $this->Flash->error(__('The project could not be deleted. Please, try again.'));
         }
 
         return $this->redirect(['action' => 'index']);
@@ -125,22 +125,22 @@ class ChurchsController extends AppController
     {
         $this->request->allowMethod(['ajax', 'post']);
         $session = $this->request->getSession();
-        $church = $this->Churchs->newEmptyEntity();
+        $project = $this->Projects->newEmptyEntity();
         if ($this->request->is('post')) {
-            $church = $this->Churchs->patchEntity($church, $this->request->getData());
+            $project = $this->Projects->patchEntity($project, $this->request->getData());
 
-            $church->createdby = $session->read('Auth.Username');
-            $church->modifiedby = $session->read('Auth.Username');
-            $church->deleted = 0;
+            $project->createdby = $session->read('Auth.Username');
+            $project->modifiedby = $session->read('Auth.Username');
+            $project->deleted = 0;
 
             try{
-                if ($this->Churchs->save($church)) {
+                if ($this->Projects->save($project)) {
                     $response = [
                         'message' => 'Data saved successfully!',
-                        'data' => $church->toArray()
+                        'data' => $project->toArray()
                     ];
                 }else {
-                    $errors = $church->getErrors();
+                    $errors = $project->getErrors();
                     $response = ['message' => 'Failed to save data.', 'errors' => $errors];
                 }
             }
