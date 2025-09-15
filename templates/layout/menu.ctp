@@ -59,6 +59,27 @@ $agency_name = $session->read('Auth.ShopName');
                 <li class="slide">
                     <?= $this->Html->link('Ajouter', ['controller' => 'offerings', 'action' => 'add'], ['escape'=>false, 'class' => 'side-menu__item']) ?>
                 </li>
+                <li class="slide">
+                    <?= $this->Html->link('Type d\'offrandes', ['controller' => 'offeringstypes', 'action' => 'index'], ['escape'=>false, 'class' => 'side-menu__item']) ?>
+                </li>
+            </ul>
+        </li>
+        <!-- End::slide -->
+
+        <!-- Start::slide -->
+        <li class="slide has-sub <?= $menu_sales ?? '' ?>">
+            <a href="javascript:void(0);" class="side-menu__item">
+                <i class="ri-arrow-down-s-line side-menu__angle"></i>
+                <i class="fa-thin fa-books w-6 h-6 side-menu__icon"></i>
+                <span class="side-menu__label">Projets</span>
+            </a>
+            <ul class="slide-menu child1">
+                <li class="slide">
+                    <?= $this->Html->link('Liste', ['controller' => 'projects', 'action' => 'index'], ['escape'=>false, 'class' => 'side-menu__item']) ?>
+                </li>
+                <li class="slide">
+                    <?= $this->Html->link('Ajouter', ['controller' => 'projects', 'action' => 'add'], ['escape'=>false, 'class' => 'side-menu__item']) ?>
+                </li>
             </ul>
         </li>
         <!-- End::slide -->
@@ -136,6 +157,9 @@ $agency_name = $session->read('Auth.ShopName');
             <ul class="slide-menu child1">
                 <li class="slide">
                     <?= $this->Html->link('Offrandes', ['controller' => 'general', 'action' => 'offerings'], ['escape'=>false, 'class' => 'side-menu__item']) ?>
+                </li>
+                <li class="slide">
+                    <?= $this->Html->link('Projets', ['controller' => 'general', 'action' => 'projects'], ['escape'=>false, 'class' => 'side-menu__item']) ?>
                 </li>
                 <li class="slide">
                     <?= $this->Html->link('Participations', ['controller' => 'general', 'action' => 'participations'], ['escape'=>false, 'class' => 'side-menu__item']) ?>

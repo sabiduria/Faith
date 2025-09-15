@@ -3,14 +3,14 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Offeringstype $offeringstype
  */
-$this->set('title_2', 'Offeringstypes');
+$this->set('title_2', 'Type d\'offrandes');
 $emptyText = "Veuillez selectionner";
 ?>
 <div class="mt-3">
     <?= $this->Form->create($offeringstype) ?>
         <div class="row gy-2">
             <div class="col-xl-12">
-                <?= $this->Form->control('name', ['class' => 'form-control', 'label' => 'name']); ?>
+                <?= $this->Form->control('name', ['class' => 'form-control', 'label' => 'Designation']); ?>
             </div>
             <div class="col-xl-12">
                 <?= $this->Form->control('church', ['class' => 'form-control', 'label' => 'church']); ?>

@@ -3,48 +3,35 @@
  * @var \App\View\AppView $this
  * @var iterable<\App\Model\Entity\Offeringstype> $offeringstypes
  */
-$this->set('title_2', 'Offeringstypes');
+$this->set('title_2', 'Type d\'offrandes');
 $Number = 1;
 $emptyText = "Veuillez selectionner";
 ?>
 <div class="mt-3">
     <button class="btn btn-sm btn-primary-light mb-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#NewItem" aria-controls="NewItem"><i class="fa-thin fa-plus"></i> Ajouter</button>
-    <?= $this->Html->link(__('Nouveau Offeringstype'), ['action' => 'add'], ['class' => 'btn btn-success btn-sm mb-3']) ?>
     <div class="table-responsive">
         <table id="scroll-vertical" class="table table-bordered text-nowrap w-100 TableData">
             <thead>
-                <tr>
-                    <th><?= $this->Paginator->sort('N°') ?></th>
-                    <th><?= $this->Paginator->sort('id') ?></th>
-                    <th><?= $this->Paginator->sort('name') ?></th>
-                    <th><?= $this->Paginator->sort('church') ?></th>
-                    <th><?= $this->Paginator->sort('created') ?></th>
-                    <th><?= $this->Paginator->sort('modified') ?></th>
-                    <th><?= $this->Paginator->sort('createdby') ?></th>
-                    <th><?= $this->Paginator->sort('modifiedby') ?></th>
-                    <th><?= $this->Paginator->sort('deleted') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
-                </tr>
+            <tr>
+                <th><?= $this->Paginator->sort('N°') ?></th>
+                <th><?= $this->Paginator->sort('Designation') ?></th>
+                <th><?= $this->Paginator->sort('Date') ?></th>
+                <th class="actions"><?= __('Actions') ?></th>
+            </tr>
             </thead>
             <tbody>
-                <?php foreach ($offeringstypes as $offeringstype): ?>
+            <?php foreach ($offeringstypes as $offeringstype): ?>
                 <tr>
                     <td><?= $Number++ ?></td>
-                    <td><?= $this->Number->format($offeringstype->id) ?></td>
                     <td><?= h($offeringstype->name) ?></td>
-                    <td><?= $offeringstype->church === null ? '' : $this->Number->format($offeringstype->church) ?></td>
                     <td><?= h($offeringstype->created) ?></td>
-                    <td><?= h($offeringstype->modified) ?></td>
-                    <td><?= h($offeringstype->createdby) ?></td>
-                    <td><?= h($offeringstype->modifiedby) ?></td>
-                    <td><?= h($offeringstype->deleted) ?></td>
                     <td class="actions">
                         <?= $this->Html->link(__('Details'), ['action' => 'view', $offeringstype->id], ['class' => 'btn btn-success btn-sm']) ?>
                         <?= $this->Html->link(__('Editer'), ['action' => 'edit', $offeringstype->id], ['class' => 'btn btn-primary btn-sm']) ?>
                         <?= $this->Form->postLink(__('Supprimer'), ['action' => 'delete', $offeringstype->id], ['class' => 'btn btn-danger btn-sm', 'confirm' => __('Voulez-vous supprimer cette information ?')]) ?>
                     </td>
                 </tr>
-                <?php endforeach; ?>
+            <?php endforeach; ?>
             </tbody>
         </table>
     </div>
@@ -53,27 +40,27 @@ $emptyText = "Veuillez selectionner";
 <div class="offcanvas offcanvas-end" tabindex="-1" id="NewItem"
      aria-labelledby="offcanvasRightLabel1">
     <div class="offcanvas-header border-bottom border-block-end-dashed">
-        <h5 class="offcanvas-title" id="offcanvasRightLabel1">Nouveau Offeringstypes</h5>
+        <h5 class="offcanvas-title" id="offcanvasRightLabel1">Nouveau Type</h5>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body p-3">
         <div class="row">
             <div id="response"></div>
-<div class="mt-3">
-    <?= $this->Form->create(null, ['id' => 'DataForm']);?>
-        <div class="row gy-2">
-            <div class="col-xl-12">
-                <?= $this->Form->control('name', ['class' => 'form-control', 'label' => 'name']); ?>
+            <div class="mt-3">
+                <?= $this->Form->create(null, ['id' => 'DataForm']);?>
+                <div class="row gy-2">
+                    <div class="col-xl-12">
+                        <?= $this->Form->control('name', ['class' => 'form-control', 'label' => 'Designation']); ?>
+                    </div>
+                    <div class="col-xl-12">
+                        <?= $this->Form->control('church', ['class' => 'form-control', 'label' => 'church']); ?>
+                    </div>
+                </div>
+                <div class="mt-3 mb-3">
+                    <?= $this->Form->button(__('Enregistrer'), ['class'=>'btn btn-success']) ?>
+                </div>
+                <?= $this->Form->end() ?>
             </div>
-            <div class="col-xl-12">
-                <?= $this->Form->control('church', ['class' => 'form-control', 'label' => 'church']); ?>
-            </div>
-        </div>
-        <div class="mt-3 mb-3">
-            <?= $this->Form->button(__('Enregistrer'), ['class'=>'btn btn-success']) ?>
-        </div>
-    <?= $this->Form->end() ?>
-</div>
 
         </div>
     </div>
@@ -99,9 +86,7 @@ $emptyText = "Veuillez selectionner";
                     newRow += '<td>'+''+'</td>'; // Add your actions
                     newRow += '</tr>';
 
-                    // Append the new row to the table
-                    $('.TableData tbody').append(newRow);
-                    $('#DataForm')[0].reset();
+                    window.location.reload();
                 },
                 error: function(xhr, status, error) {
                     console.error(error); // Log any error

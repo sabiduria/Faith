@@ -3,7 +3,7 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Offeringstype $offeringstype
  */
-$this->set('title_2', 'Offeringstypes');
+$this->set('title_2', 'Type d\'offrandes');
 $emptyText = "Veuillez selectionner";
 ?>
 <div class="mt-3">

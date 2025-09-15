@@ -14,7 +14,7 @@
  * @var \App\View\AppView $this
  */
 
-$AppDescription = 'Vectra';
+$AppDescription = 'Faith';
 $company = 'Sabiantart Corporate';
 $session = $this->request->getSession();
 $username = $session->read('Auth.Username');
@@ -24,6 +24,7 @@ $username = $session->read('Auth.Username');
 <head>
     <?= $this->Html->charset() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?= $this->Html->meta('csrfToken', $this->request->getAttribute('csrfToken')); ?>
     <title>
         <?= $AppDescription ?>:
         <?= $this->fetch('title') ?>
@@ -49,8 +50,15 @@ $username = $session->read('Auth.Username');
         'libs/flatpickr/flatpickr.min.css'
     ]) ?>
 
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.bootstrap5.min.css">
+
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/all.css" >
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.6.0/css/sharp-thin.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
     <style>
         .select2-container .select2-selection--single{
@@ -110,16 +118,16 @@ $username = $session->read('Auth.Username');
                         </li>
                         <li class="breadcrumb-item active" aria-current="page"><?= $this->fetch('title') ?></li>
                     </ol>
-                    <h1 class="page-title fw-medium fs-18 mb-0">Tableau de bord</h1>
+                    <h1 class="page-title fw-medium fs-18 mb-0"><?= ucfirst($title_2 ?? 'Dashboard') ?></h1>
                 </div>
             </div>
             <!-- End::page-header -->
+
             <?= $this->Flash->render() ?>
             <?= $this->fetch('content') ?>
         </div>
     </div>
     <!-- End::app-content -->
-
 
     <!-- Footer Start -->
     <footer class="footer mt-auto py-3 bg-white text-center">
@@ -135,10 +143,7 @@ $username = $session->read('Auth.Username');
         </div>
     </footer>
     <!-- Footer End -->
-
-
 </div>
-
 
 <!-- Scroll To Top -->
 <div class="scrollToTop">
@@ -148,6 +153,7 @@ $username = $session->read('Auth.Username');
 <!-- Scroll To Top -->
 
 
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <?= $this->Html->script([
     'libs/@popperjs/core/umd/popper.min.js',
     'libs/bootstrap/js/bootstrap.bundle.min.js',
@@ -160,6 +166,19 @@ $username = $session->read('Auth.Username');
     'libs/@simonwep/pickr/pickr.es5.min.js',
     'libs/flatpickr/flatpickr.min.js',
     'libs/apexcharts/apexcharts.min.js',
+    'datatables.js',
+    'select2.js',
 ]) ?>
+<!-- Datatables Cdn -->
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.3.0/js/dataTables.responsive.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.6/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
 </body>
 </html>

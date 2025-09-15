@@ -3,7 +3,7 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Project $project
  */
- $this->set('title_2', 'Projects');
+$this->set('title_2', 'Projets');
 ?>
 <div class="row">
     <div class="column column-80">
