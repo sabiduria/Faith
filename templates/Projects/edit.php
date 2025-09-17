@@ -15,7 +15,7 @@ $status = ["En cours" => "En cours", "Terminé" => "Terminé", "Annulé" => "Ann
             <?= $this->Form->control('title', ['class' => 'form-control', 'label' => 'Titre']); ?>
         </div>
         <div class="col-xl-12">
-            <?= $this->Form->control('description', ['class' => 'form-control', 'label' => 'Description']); ?>
+            <?= $this->Form->control('description', ['class' => 'form-control text-editor', 'label' => 'Description']); ?>
         </div>
         <div class="col-xl-6">
             <?= $this->Form->control('start_date', ['empty' => true, 'class' => 'form-control', 'label' => 'Date debut']); ?>

@@ -30,7 +30,7 @@ $emptyText = "Veuillez selectionner";
                 <?= $this->Form->control('summary', ['class' => 'form-control', 'label' => 'Résumé']); ?>
             </div>
             <div class="col-xl-12">
-                <?= $this->Form->control('sermon', ['class' => 'form-control', 'label' => 'Prédications']); ?>
+                <?= $this->Form->control('sermon', ['class' => 'form-control text-editor', 'label' => 'Prédications']); ?>
             </div>
             <div class="col-xl-12">
                 <?= $this->Form->control('contributor', ['class' => 'form-control', 'label' => 'Contributeur / Pasteur']); ?>
