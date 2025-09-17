@@ -156,6 +156,9 @@ $agency_name = $session->read('Auth.ShopName');
             </a>
             <ul class="slide-menu child1">
                 <li class="slide">
+                    <?= $this->Html->link('Rediger un rapport', ['controller' => 'reports', 'action' => 'index'], ['escape'=>false, 'class' => 'side-menu__item']) ?>
+                </li>
+                <li class="slide">
                     <?= $this->Html->link('Offrandes', ['controller' => 'general', 'action' => 'offerings'], ['escape'=>false, 'class' => 'side-menu__item']) ?>
                 </li>
                 <li class="slide">

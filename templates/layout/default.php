@@ -33,7 +33,7 @@ $username = $session->read('Auth.Username');
 
     <?= $this->Html->script([
         'libs/choices.js/public/assets/scripts/choices.min.js',
-        'main.js'
+        'main.js',
     ]) ?>
     <!-- App css -->
     <?= $this->Html->css([
@@ -49,6 +49,14 @@ $username = $session->read('Auth.Username');
         'libs/@tarekraafat/autocomplete.js/css/autoComplete.css',
         'libs/flatpickr/flatpickr.min.css'
     ]) ?>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/8.0.2/tinymce.min.js" integrity="sha512-YbDTlPzdxp1VYQ17ph0fU19QGLngv261Stp1ba+lxFlYEr2SVnTDUOtckOlciLssTjsxx9m7SKd4gMuT56MLig==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        tinymce.init({
+            selector: '.text-editor',
+            license_key: 'gpl'
+        });
+    </script>
 
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.3.0/css/responsive.bootstrap.min.css">

@@ -50,7 +50,7 @@
             <div class="text">
                 <strong><?= __('Summary') ?></strong>
                 <blockquote>
-                    <?= $this->Text->autoParagraph(h($report->summary)); ?>
+                    <?= html_entity_decode($this->Text->autoParagraph(h($report->summary))); ?>
                 </blockquote>
             </div>
         </div>

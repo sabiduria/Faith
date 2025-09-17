@@ -11,10 +11,10 @@ $emptyText = "Veuillez selectionner";
     <?= $this->Form->create($report) ?>
         <div class="row gy-2">
             <div class="col-xl-12">
-                <?= $this->Form->control('title', ['class' => 'form-control', 'label' => 'title']); ?>
+                <?= $this->Form->control('title', ['class' => 'form-control', 'label' => 'Designation']); ?>
             </div>
             <div class="col-xl-12">
-                <?= $this->Form->control('summary', ['class' => 'form-control', 'label' => 'summary']); ?>
+                <?= $this->Form->control('summary', ['class' => 'form-control text-editor', 'label' => 'Sommaire']); ?>
             </div>
             <div class="col-xl-12">
                 <?= $this->Form->control('status', ['class' => 'form-control', 'label' => 'status']); ?>
